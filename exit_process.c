@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_process.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amalolla <amalolla@student.42.fr>          #+#  +:+       +#+        */
+/*   By: stonetrooper <stonetrooper@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-20 18:32:58 by amalolla          #+#    #+#             */
-/*   Updated: 2025-04-20 18:32:58 by amalolla         ###   ########.fr       */
+/*   Created: 2025/04/20 18:32:58 by amalolla          #+#    #+#             */
+/*   Updated: 2025/04/17 17:13:07 by stonetroope      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	quitter(t_game *g)
 	return (0);
 }
 
-void	call_exit(t_game *g, int x, int y)
+/*void	call_exit(t_game *g, int x, int y)
 {
 	if (g->map[y][x] == 'E')
 	{
@@ -55,5 +55,14 @@ void	call_exit(t_game *g, int x, int y)
 		}
 		else
 			mlx_put_image_to_window(g->mlx, g->win, g->is, x * 64, y * 64);
+	}
+}*/
+
+void	call_exit(t_game *g, int x, int y)
+{
+	if (g->map[y][x] == 'E')
+	{
+		// Si le joueur atteint une sortie, quitter le jeu immédiatement
+		quitter(g);
 	}
 }

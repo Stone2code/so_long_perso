@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amalolla <amalolla@student.42.fr>          #+#  +:+       +#+        */
+/*   By: stonetrooper <stonetrooper@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-20 18:07:51 by amalolla          #+#    #+#             */
-/*   Updated: 2025-04-20 18:07:51 by amalolla         ###   ########.fr       */
+/*   Created: 2025/04/20 18:07:51 by amalolla          #+#    #+#             */
+/*   Updated: 2025/04/17 17:17:31 by stonetroope      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ void	find_pos_p(t_game *g, int x, int y)
 	if (g->py != g->h || g->px != g->l)
 		put_count(g);
 	else
-	{
-		mlx_string_put(g->mlx, g->win, 10, 10, 0xFFFFFF, "Moves:");
-		mlx_string_put(g->mlx, g->win, 70, 10, 0xFFA500, str);
-	}
+	//{
+		//mlx_string_put(g->mlx, g->win, 10, 10, 0xFFFFFF, "Moves:");
+		//mlx_string_put(g->mlx, g->win, 70, 10, 0xFFA500, str);
+    put_count(g);
+	//}
 	g->px = x * 64;
 	g->py = y * 64;
 	mlx_put_image_to_window(g->mlx, g->win, g->ij, g->px, g->py);
@@ -83,7 +84,7 @@ void	find_pos_p(t_game *g, int x, int y)
 		mlx_put_image_to_window(g->mlx, g->win, g->is, g->px, g->py);
 	free(str);
 }
-
+/*
 void	put_count(t_game *game)
 {
 	char	*str;
@@ -94,5 +95,19 @@ void	put_count(t_game *game)
 		return ;
 	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFFFFF, "Moves:");
 	mlx_string_put(game->mlx, game->win, 70, 10, 0xFFA500, str);
+	free(str);
+}*/
+
+void	put_count(t_game *game)
+{
+  char	*str;
+
+	game->m++;
+	str = ft_itoa(game->m);
+	if (!str)
+		return ;
+	ft_putstr("total moves : ");
+	ft_putstr(str);
+	ft_putstr("\n");
 	free(str);
 }
